@@ -31,6 +31,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
-            'image', 'is_owner', 'name', 'description',
+            'image', 'is_owner', 'description',
             'link', 'price', 'location', 'profile_id', 'profile_image'
         ]
