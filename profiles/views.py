@@ -27,5 +27,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     Retrieve or update a profile if you're the owner.
     """
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        products_count=Count('owner__product', distinct=True),
+    ).order_by('-created_at')
     serializer_class = ProfileSerializer
