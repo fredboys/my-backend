@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Product
+from save.models import Save
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -7,6 +8,7 @@ class ProductSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    save_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -27,10 +29,20 @@ class ProductSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_save_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            save = Save.objects.filter(
+                owner=user, product=obj
+            ).first()
+            return save.id if save else None
+        return None
+
     class Meta:
         model = Product
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'image', 'is_owner', 'description', 'link', 'price',
             'location', 'profile_id', 'profile_image', 'category_type',
+            'save_id',
         ]
