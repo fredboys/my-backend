@@ -1,6 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# Choice Fields
+CATEGORY_TYPES = (
+    ("food", "Food"),
+    ("drink", "Drink"),
+    ("toys", "Toys"),
+    ("technology", "Technology"),
+    ("sports", "Sports"),
+    ("clothing", "Clothing"),
+    ("footwear", "Footwear"),
+    ("household", "Household"),
+    ("homeware", "Homeware"),
+    ("other", "Other")
+)
+
 
 class Product(models.Model):
     """
@@ -15,6 +29,7 @@ class Product(models.Model):
     link = models.TextField(blank=True)
     price = models.IntegerField()
     location = models.TextField(blank=True)
+    category_type = models.CharField(max_length=50, choices=CATEGORY_TYPES, default="food")
     image = models.ImageField(
         upload_to='images/', default='../default_post_lzlyyd', blank=True
     )
