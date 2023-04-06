@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'profiles',
     'products',
     'comments',
-    'likes',
+    'save',
     'votes',
 ]
 
