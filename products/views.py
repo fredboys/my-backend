@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Product
 from .serializers import ProductSerializer
@@ -18,7 +19,18 @@ class ProductList(generics.ListCreateAPIView):
         votes_count=Count('votes', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'favourite__owner__profile',
+        'owner__profile',
+    ]
+    search_fields = [
+        'name',
+        'description',
+        'category_type'
     ]
     ordering_fields = [
         'favourite_count',
