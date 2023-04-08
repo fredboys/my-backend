@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Product
 from save.models import Save
+from votes.models import Vote
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -11,6 +12,8 @@ class ProductSerializer(serializers.ModelSerializer):
     save_id = serializers.SerializerMethodField()
     save_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    vote_id = serializers.SerializerMethodField()
+    vote_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
@@ -40,11 +43,20 @@ class ProductSerializer(serializers.ModelSerializer):
             return save.id if save else None
         return None
 
+    def get_vote_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            vote = Vote.objects.filter(
+                owner=user, product=obj
+            ).first()
+            return vote.id if vote else None
+        return None
+
     class Meta:
         model = Product
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'image', 'is_owner', 'description', 'link', 'price',
             'location', 'profile_id', 'profile_image', 'category_type',
-            'save_id', 'save_count', 'comments_count',
+            'save_id', 'save_count', 'comments_count', 'vote_id', 'vote_count'
         ]
