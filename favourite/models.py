@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 from products.models import Product
 
 
-class Save(models.Model):
+class Favourite(models.Model):
     """
-    Save model, related to User and Product
+    Favourite model, related to User and Product
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='save', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='favourite', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

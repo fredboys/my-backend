@@ -14,18 +14,15 @@ class ProductList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Product.objects.annotate(
         comments_count=Count('comment', distinct=True),
-        save_count=Count('save', distinct=True),
-        vote_count=Count('votes', distinct=True),
+        favourite_count=Count('favourite', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter
     ]
     ordering_fields = [
-        'save_count',
+        'favourite_count',
         'comments_count',
-        'save__created_at',
-        'vote_count',
-        'vote__created_at',
+        'favourite__created_at',
     ]
 
     def perform_create(self, serializer):
@@ -40,6 +37,5 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Product.objects.annotate(
         comments_count=Count('comment', distinct=True),
-        save_count=Count('save', distinct=True),
-        vote_count=Count('votes', distinct=True),
+        favourite_count=Count('favourite', distinct=True),
     ).order_by('-created_at')
