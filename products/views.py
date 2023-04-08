@@ -15,6 +15,7 @@ class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.annotate(
         comments_count=Count('comment', distinct=True),
         favourite_count=Count('favourite', distinct=True),
+        votes_count=Count('votes', distinct=True),
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter
@@ -38,4 +39,5 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.annotate(
         comments_count=Count('comment', distinct=True),
         favourite_count=Count('favourite', distinct=True),
+        votes_count=Count('votes', distinct=True),
     ).order_by('-created_at')
