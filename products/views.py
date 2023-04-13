@@ -26,6 +26,7 @@ class ProductList(generics.ListCreateAPIView):
     filterset_fields = [
         'favourite__owner__profile',
         'owner__profile',
+        'category_type'
     ]
     search_fields = [
         'name',
