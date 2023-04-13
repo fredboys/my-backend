@@ -29,7 +29,7 @@ class Product(models.Model):
     link = models.TextField(blank=True)
     price = models.IntegerField()
     location = models.TextField(blank=True)
-    category_type = models.CharField(max_length=50, choices=CATEGORY_TYPES, default="food")
+    category_type = models.CharField(max_length=50, choices=CATEGORY_TYPES)
     image = models.ImageField(
         upload_to='images/', default='../default_post_lzlyyd', blank=True
     )
