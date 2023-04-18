@@ -12,13 +12,15 @@ class ProfileList(generics.ListAPIView):
     """
     queryset = Profile.objects.annotate(
         products_count=Count('owner__product', distinct=True),
+        total_votes_count=Count('owner__product__votes', distinct=True)
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
     filter_backends = [
         filters.OrderingFilter
     ]
     ordering_fields = [
-        'products_count'
+        'products_count',
+        'total_votes_count'
     ]
 
 
