@@ -37,6 +37,7 @@ class ProductList(generics.ListCreateAPIView):
         'favourite_count',
         'comments_count',
         'favourite__created_at',
+        'votes_count'
     ]
 
     def perform_create(self, serializer):
