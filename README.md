@@ -33,7 +33,12 @@ Compare Mate API is the backend service used by the [Compare Mate application](h
 
 # Development Goals
 
+The goal of this application was to host the backend database for the frontend application "Compare Mate". It has been designed to allow full CRUD functionality across the platform via the user interface
+
 # Agile Methodology
+
+By using AGILE methodology in this project I was able to deliver a site which had all required functionality and was able to give even more extra detail when going through the project. It had been done by delivering small features in incremental sprints. This was done with a tight deadline only being less then a month away.
+
 ## User stories
 
 As a developer: 
@@ -59,8 +64,6 @@ Githubs projects was used to track user stories and implement ideas based on the
 * Must Have 
 * Should Have
 
-By using AGILE methodology in this project I was able to deliver a site which had all required functionality and was able to give even more extra detail when going through the project.
-
 [Project Board Link](https://github.com/users/fredboys/projects/11)
 ![Project Board](/readme/projectboard-cm.jpg)
 
@@ -79,9 +82,47 @@ Database diagram shows the relationship between all the apps that have been crea
 
 ![Database diagram](/readme/database-cm.jpg)
 
+# API End Point
+
+End point: /contacts/
+
+* POST - To create contact request
+* GET - To get a list of contact requests
+
+End point: /contacts/int:pk/
+
+* PUT - To update a single contact request
+* GET - To get a single contact request
+* DELETE - To delete a contact request
+
+End point: /products/
+
+* POST - To create a product post
+* GET - To list the product posts 
+
+End point: /products/int:pk/
+
+* PUT - To update a single post
+* GET - To get a single post
+* DELETE - To delete a post
+
+End point: /profiles/
+
+* POST - To create a profile
+* GET - To list the profiles 
+
+End point: /profiles/int:pk/
+
+* PUT - To update a single profile
+* GET - To get a single profile
+* DELETE - To delete a profile
+
+
 # Security
 
 A permissions class was added called IsOwnerOrReadOnly to ensure only users who create the content are able to edit or delete it.
+
+All necessary secret variables were stored in the env.py file.
 
 # Technology
 
