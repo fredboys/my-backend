@@ -14,6 +14,7 @@ Compare Mate API is the backend service used by the [Compare Mate application](h
 * [API End Points](#api-end-points)
 * [Security](#security)
 * [Technology](#technology)
+* [Packages](#packages)
 * [Testing](#testing)
 * [CRUD Functionality](#crud-functionality)
 * [Deployment](#deployment)
@@ -84,7 +85,86 @@ A permissions class was added called IsOwnerOrReadOnly to ensure only users who 
 
 # Technology
 
+* Django
+    * Main framework used for application creation
+
+* Django REST Framework
+    * Framework used for creating API
+
+* Cloudinary
+    * Used for static image hosting
+
+* Heroku
+    * Used for hosting the application
+
+* ElephantSql
+    * Used for hosting database
+
+* Git 
+    * Used for version control
+
+* GitHub
+    * Repository for storing code
+
+# Packages
+
+* asgiref==3.6.0
+* cloudinary==1.32.0
+* dj-database-url==0.5.0
+* dj-rest-auth==2.1.9
+* Django==3.2.18
+* django-allauth==0.44.0
+* django-cloudinary-storage==0.3.0
+* django-cors-headers==3.14.0
+* django-filter==23.1
+* djangorestframework==3.14.0
+* djangorestframework-simplejwt==5.2.2
+* gunicorn==20.1.0
+* oauthlib==3.2.2
+* Pillow==9.5.0
+* psycopg2==2.9.6
+* PyJWT==2.6.0
+* python3-openid==3.2.0
+* pytz==2023.3
+*  requests-oauthlib==1.3.1
+* sqlparse==0.4.3
+
+
 # Testing 
+
+All folders were run through flake8. Several issues appeared with various reasons, lines too long, blank spaces, no new line.
+
+All issues were resolved with the exception of lines too long in migration files (these are auto generated so I did not fix) and the auth validator lines in the settings.py which seem to be unbreakable but are framework code.
+
+A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
+
+* Comments
+
+![comments test](/readme/commenttest-cm.jpg)
+
+* Contacts
+
+![contacts](/readme/contactstest-cm.jpg)
+
+* Drf_api
+
+![drf_api](/readme/drf_apitest-cm.jpg)
+
+* Favourite
+
+![favourite](/readme/favouritetest-cm.jpg)
+
+* Products
+
+![products](/readme/productstest-cm.jpg)
+
+* Profile
+
+![profiles](/readme/profilestest-cm.jpg)
+
+* Votes
+
+![votes](/readme/votestest-cm.jpg)
 
 # Deployment
 ## Heroku
