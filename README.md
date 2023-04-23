@@ -82,7 +82,9 @@ Database diagram shows the relationship between all the apps that have been crea
 
 ![Database diagram](/readme/database-cm.jpg)
 
-# API End Point
+# API End Points
+
+Contacts
 
 End point: /contacts/
 
@@ -95,6 +97,8 @@ End point: /contacts/int:pk/
 * GET - To get a single contact request
 * DELETE - To delete a contact request
 
+Products
+
 End point: /products/
 
 * POST - To create a product post
@@ -105,6 +109,8 @@ End point: /products/int:pk/
 * PUT - To update a single post
 * GET - To get a single post
 * DELETE - To delete a post
+
+Profiles
 
 End point: /profiles/
 
@@ -117,6 +123,44 @@ End point: /profiles/int:pk/
 * GET - To get a single profile
 * DELETE - To delete a profile
 
+Comments
+
+End point: /comments/
+
+* POST - To create a comment
+* GET - To list the comments
+
+End point: /comments/int:pk/
+
+* PUT - To update a single comment
+* GET - To get a single comment
+* DELETE - To delete a comment
+
+Favourite
+
+End point: /favourite/
+
+* POST - To create a favourite on a product
+* GET - To list the favourites
+
+End point: /favourite/int:pk/
+
+* PUT - To update a favourite
+* GET - To get a single favourite
+* DELETE - To delete a favourite
+
+Vote
+
+End point: /votes/
+
+* POST - To create a vote on a product
+* GET - To list the votes
+
+End point: /votes/int:pk/
+
+* PUT - To update a vote
+* GET - To get a single vote
+* DELETE - To delete a vote
 
 # Security
 
@@ -209,9 +253,58 @@ A warning appeared for env.py being imported but unused although this is being u
 
 # Deployment
 ## Heroku
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+* Navigate to heroku and create an account
+* Click the new button in the top right corner
+* Select create new app
+* Enter app name
+* Select region and click create app
+* Click the resources tab and search for Heroku Postgres
+* Select hobby dev and continue
+* Go to the settings tab and then click reveal config vars
+* Add the following config vars:
+    * SECRET_KEY: (Your secret key)
+    * DATABASE_URL: (From your ElephantSql)
+    * ALLOWED_HOST:
+    * CLIENT_ORIGIN: url for the client front end react application that will be making requests to these APIs
+    * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
+    * CLOUDINARY: (Your cloudinary link)
+    * DISABLE_COLLECTSTATIC: 1
+* Click the deploy tab
+* Scroll down to Connect to GitHub and sign in / authorize when prompted
+* In the search box, find the repositoy you want to deploy and click connect
+* Scroll down to Manual deploy and choose the main branch
+* Click deploy
+
 ## Locally
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+* Click on the code drop down button
+* Click on HTTPS
+* Copy the repository link to the clipboard
+* Open your IDE of choice (git must be installed for the next steps)
+* Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+In order to run, you will need to create an env.py file and add the config vars as used in heroku steps above.
+
 ## Fork
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+* Navigate to the GitHub Repository you want to fork.
+* On the top right of the page under the header, click the fork button.
+* This will create a duplicate of the full project in your GitHub Repository.
 
 # Credits
 ## Content
+
+[Choices field](https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django) - I used this link to help me with the category drop down for my products
+
 ## Acknowledgements
+
+Than you to my mentor Daisy for helping me through this project.
