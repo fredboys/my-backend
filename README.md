@@ -71,10 +71,10 @@ Githubs projects was used to track user stories and implement ideas based on the
 
 Full CRUD Functionality has been used in this project
 
-Create - Users can create profiles, posts, comments, votes and favourites
-Read - User can view all product posts, favourites, votes and comments
-Update - Users can update posts, comments, votes, favourites and profile details
-Delete - Users can update posts, comments, votes and favourites
+* Create - Users can create profiles, posts, comments, votes and favourites
+* Read - User can view all product posts, favourites, votes and comments
+* Update - Users can update posts, comments, votes, favourites and profile details
+* Delete - Users can update posts, comments, votes and favourites
 
 # Database Design
 
