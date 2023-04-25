@@ -64,7 +64,8 @@ Githubs projects was used to track user stories and implement ideas based on the
 * Must Have 
 * Should Have
 
-[Project Board Link](https://github.com/users/fredboys/projects/11)
+I used GitHub projects board to create the user stories and keep track of my tasks. Here is the link to my board - [Project Board Link](https://github.com/users/fredboys/projects/11)
+
 ![Project Board](/readme/projectboard-cm.jpg)
 
 # CRUD Functionality
