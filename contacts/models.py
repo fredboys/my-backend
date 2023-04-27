@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Contact(models.Model):
     """
-    Comment model, related to User
+    Contact model, related to User
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     reason = models.CharField(max_length=50)

@@ -5,6 +5,9 @@ from .serializers import VoteSerializer
 
 
 class VoteList(generics.ListCreateAPIView):
+    """
+    lists all votes
+    """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = VoteSerializer
     queryset = Vote.objects.all()
@@ -14,6 +17,9 @@ class VoteList(generics.ListCreateAPIView):
 
 
 class VoteDetail(generics.RetrieveDestroyAPIView):
+    """
+    Allows to delete votes
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = VoteSerializer
     queryset = Vote.objects.all()
