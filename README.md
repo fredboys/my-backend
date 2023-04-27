@@ -268,7 +268,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Add the following config vars:
     * SECRET_KEY: (Your secret key)
     * DATABASE_URL: (From your ElephantSql)
-    * ALLOWED_HOST:
+    * ALLOWED_HOST: url for you backend deployed
     * CLIENT_ORIGIN: url for the client front end react application that will be making requests to these APIs
     * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
     * CLOUDINARY: (Your cloudinary link)
